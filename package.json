@@ -1,0 +1,31 @@
+{
+  "name": "arc-svelte-template",
+  "version": "0.1.0",
+  "description": "scaffolding for how to set up an arc and svelte site",
+  "scripts": {
+    "build:staging": "npm run build:clean && parcel build --no-content-hash src/frontend/index.js",
+    "build:production": "npm run build:clean && parcel build --no-content-hash --no-source-maps src/frontend/index.js",
+    "build:clean": "rm -rf dist",
+    "watch:js": "parcel watch src/frontend/index.js",
+    "serve": "arc sandbox",
+    "start": "concurrently npm:watch:js npm:serve",
+    "deploy:staging": "npm run build:staging && arc deploy",
+    "deploy:production": "npm run build:production && arc deploy production"
+  },
+  "keywords": [],
+  "author": "filmaj",
+  "license": "MIT",
+  "devDependencies": {
+    "@architect/architect": "^8.2.1",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.12.1",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-svelte": "^4.0.6",
+    "svelte": "3.29.4"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {}
+}
